@@ -1,5 +1,6 @@
 
 import Header from '../components/Heder'
+import KanbanBoard from '../components/KanbanBoard'
 
 function Home() {
 
@@ -16,6 +17,7 @@ function Home() {
   return (
     <>
     <Header/>
+    <KanbanBoard/>
     </>
   )
 }

@@ -13,6 +13,7 @@ export const userSlice = createSlice({
     clearUser: (state) => {
       state.user = null;
       localStorage.removeItem("userData");
+      localStorage.removeItem("tasks");
     },
   },
 });
