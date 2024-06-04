@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom";
 import {setUser} from "../redux/userReducer";
@@ -11,6 +11,13 @@ function Login() {
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    const userData = localStorage.getItem("userData");
+    if (userData !== null) {
+      navigate("/");
+    }
+  }, [navigate]);
 
   const handleEmailForm = async (event) => {
     event.preventDefault();
@@ -48,11 +55,11 @@ function Login() {
         otp: enteredOtp,
       });
       // const {access_token,refresh_token,username,email,id} = response.data
-      
+
       const userData = response.data;
       dispatch(setUser(userData));
       console.log(response.data);
-      navigate("/"); 
+      navigate("/");
     } catch (error) {
       if (error.response) {
         setMessage(error.response.data.error);
@@ -72,7 +79,6 @@ function Login() {
           <div className="p-4">
             {!isOtpSent ? (
               <form onSubmit={handleEmailForm}>
-                
                 <input
                   type="text"
                   value={email}

@@ -1,18 +1,18 @@
 
+import { useNavigate } from 'react-router-dom';
 import Header from '../components/Heder'
 import KanbanBoard from '../components/KanbanBoard'
+import { useEffect } from 'react';
 
 function Home() {
 
- 
-  // useEffect(() => {
-  //   if (localStorage.getItem("access_token") === null) {
-  //     navigate("/Login");
-  //   } else {
-  //     navigate('/')
-  //     setMessage('you are logged in')
-  //   }
-  // },[])
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const userData = localStorage.getItem("userData");
+    const isAuthenticated = userData !== null;
+    navigate(isAuthenticated ? "/" : "Login");
+  }, [navigate]);
 
   return (
     <>

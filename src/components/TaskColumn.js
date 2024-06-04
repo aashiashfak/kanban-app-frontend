@@ -23,22 +23,30 @@ const TaskColumn = ({
           {tasks.map((task, index) => (
             <Draggable key={task.id} draggableId={task.id} index={index}>
               {(provided) => (
-                <div
+                <div 
                   ref={provided.innerRef}
                   {...provided.draggableProps}
                   {...provided.dragHandleProps}
-                  className="bg-white p-2 mb-2 rounded-lg shadow-sm flex"
+                  className="bg-white p-2 mb-2 rounded-lg shadow-sm flex hover:bg-slate-200"
                 >
-                  <input
-                    type="text"
+                  <textarea
                     value={task.content}
-                    onChange={(e) =>
-                      handleEditTask(task.id, columnId, e.target.value)
-                    }
-                    className="w-full p-1 mb-2 border-b border-gray-300 focus:outline-none"
+                    onChange={(e) => {
+                      handleEditTask(task.id, columnId, e.target.value);
+                      e.target.style.height = "auto";
+                      e.target.style.height = e.target.scrollHeight + "px";
+                    }}
+                    className="w-full p-1 border-b border-gray-300 focus:outline-none"
+                    rows={1}
+                    style={{
+                      resize: "none",
+                      overflow: "hidden",
+                      height: "auto",
+                    }}
                   />
+
                   <i
-                    className="text-red-500 hover:text-red-700 fa-solid fa-trash mt-2"
+                    className="text-red-500 hover:text-red-700 fa-solid fa-trash mt-2 ml-1 my-auto"
                     onClick={() => handleDeleteTask(task.id, columnId)}
                   ></i>
                   <i

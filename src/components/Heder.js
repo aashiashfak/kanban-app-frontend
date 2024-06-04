@@ -17,26 +17,17 @@ const Header = () => {
   return (
     <header className="bg-gray-800 text-white p-4 flex justify-between items-center">
       <h1 className="text-xl font-bold">Kanban App</h1>
-      <div className="flex items-center">
-        {user.user ? (
-          <>
-            <span className="mr-4">{user.user.username}</span>
-            <button
-              onClick={handleLogout}
-              className="bg-violet-600 text-white py-2 px-4 rounded-md hover:bg-violet-700 transition duration-200"
-            >
-              Logout
-            </button>
-          </>
-        ) : (
+      {user.user ? (
+        <div className="flex items-center">
+          <span className="mr-4">{user.user.username}</span>
           <button
-            onClick={() => navigate("/login")} // 
+            onClick={handleLogout}
             className="bg-violet-600 text-white py-2 px-4 rounded-md hover:bg-violet-700 transition duration-200"
           >
-            Login
+            Logout
           </button>
-        )}
-      </div>
+        </div>
+      ) : null}
     </header>
   );
 };
