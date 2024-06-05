@@ -13,13 +13,16 @@ const TaskInput = ({onAddTask}) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mb-4 flex">
-      <input
-        type="text"
+    <form onSubmit={handleSubmit} className="mb-4 flex ">
+      <textarea
         value={taskContent}
         onChange={(e) => setTaskContent(e.target.value)}
         placeholder="Enter new task"
-        className="border p-2 rounded-l-lg focus:outline-none"
+        className="p-2 rounded-l-lg focus:outline-none resize-none overflow-hidden text-gray-500 border-b border-b-gray-500"
+        style={{
+            height:'46px',
+            backgroundColor:'#212121'
+        }}
         required
       />
       <button
