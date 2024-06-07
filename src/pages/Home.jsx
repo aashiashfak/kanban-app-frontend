@@ -8,6 +8,7 @@ function Home() {
 
   const navigate = useNavigate();
 
+  // control the authenticated user from going back to login page with checking userData from local storage 
   useEffect(() => {
     const userData = localStorage.getItem("userData");
     const isAuthenticated = userData !== null;

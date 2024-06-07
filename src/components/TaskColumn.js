@@ -15,7 +15,7 @@ const TaskColumn = ({
         <div
           ref={provided.innerRef}
           {...provided.droppableProps}
-          className="w-1/3 bg-violet-light p-4 rounded-lg shadow-lg"
+          className="w-1/3 bg-gray-800 p-4 rounded-lg shadow-lg"
         >
           <div className="shadow-md pb-2 mb-4">
             <h2 className="text-xl font-semibold mb-2 text-violet-600 text-center">
@@ -30,8 +30,7 @@ const TaskColumn = ({
                   ref={provided.innerRef}
                   {...provided.draggableProps}
                   {...provided.dragHandleProps}
-                  className="p-2 mb-2 rounded-lg shadow-md flex hover:bg-gray-800 "
-                  
+                  className="p-2 mb-2 rounded-lg shadow-md flex bg-customDark"
                 >
                   <textarea
                     value={task.content}

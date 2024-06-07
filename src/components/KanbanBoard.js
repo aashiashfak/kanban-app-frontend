@@ -1,5 +1,3 @@
-// components/KanbanBoard.js
-// import React, {useState} from "react";
 import {DragDropContext} from "react-beautiful-dnd";
 import {useDispatch, useSelector} from "react-redux";
 import {
@@ -24,7 +22,7 @@ const KanbanBoard = () => {
     if (
       source.droppableId === "Completed" &&
       (destination.droppableId === "Todo" ||
-        destination.droppableId === "In Progress")
+        destination.droppableId === "InProgress")
     ) {
       return;
     }
@@ -51,9 +49,9 @@ const KanbanBoard = () => {
   return (
     <div>
       <div className="container mx-auto p-4 flex flex-col items-center">
-        <h1 className="text-3xl font-bold mb-4 text-violet-600 text-center">
+        {/* <h1 className="text-3xl font-bold mb-4 text-violet-600 text-center">
           Enter task
-        </h1>
+        </h1> */}
         <TaskInput onAddTask={handleAddTask} />
       </div>
       <div className="container mx-auto p-4">

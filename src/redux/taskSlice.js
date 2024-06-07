@@ -1,4 +1,3 @@
-// slices/taskSlice.js
 import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
@@ -19,6 +18,7 @@ const taskSlice = createSlice({
       };
       state.Todo.push(newTask);
       localStorage.setItem("tasks", JSON.stringify(state));
+      console.log(JSON.stringify(state));
     },
     deleteTask: (state, action) => {
       const {taskId, column} = action.payload;
@@ -33,6 +33,7 @@ const taskSlice = createSlice({
     },
     favoriteTask: (state, action) => {
       const {taskId, column} = action.payload;
+      console.log(taskId,column)
       const task = state[column].find((task) => task.id === taskId);
       if (task) task.favorite = !task.favorite;
       localStorage.setItem("tasks", JSON.stringify(state));
