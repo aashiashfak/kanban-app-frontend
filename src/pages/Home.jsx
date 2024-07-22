@@ -15,6 +15,10 @@ function Home() {
     navigate(isAuthenticated ? "/" : "Login");
   }, [navigate]);
 
+
+  useEffect(()=>{
+    console.log('enter to useEffect')
+  },[])
   return (
     <>
     <Header/>

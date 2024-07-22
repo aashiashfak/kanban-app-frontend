@@ -56,6 +56,7 @@ function Login() {
     try {
       const response = await axiosInstance.post("/accounts/otp-verification/", {
         otp: enteredOtp,
+        email,
       });
       const userData = response.data;
       dispatch(setUser(userData));
